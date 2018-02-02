@@ -1,13 +1,43 @@
-# import Post from "./generated/prisma.graphql"
+# import Tweet, Notifcation, Stat, User from "./generated/prisma.graphql"
+
+type User {
+  id: ID!
+  username: String!
+  email: String!
+  fullName: String!
+  firstName: String
+  lastName: String
+  tweets: [Tweet!]!
+}
+
+type Feed {
+  tweets: [Tweet!]!
+  count: Int!
+}
 
 type Query {
-  feed: [Post!]!
-  drafts: [Post!]!
-  post(id: ID!): Post
+  tweet(id: ID!): Tweet!
+  feed(filter: String, skip: Int, first: Int, orderBy: TweetOrderByInput): Feed!
+  notifcations(limit: Int): [Notification!]!
+
+  user: User!
+}
+
+type AuthPayload {
+  token: String!
+  user: User
 }
 
 type Mutation {
-  createDraft(title: String!, text: String): Post
-  deletePost(id: ID!): Post
-  publish(id: ID!): Post
+  createTweet(body: String!): Tweet
+  deleteTweet(id: ID!): Tweet
+  markTweetRead(id: ID!): Boolean
+
+  signup(
+    email: String!
+    password: String!
+    username: String!
+    fullName: String!
+  ): AuthPayload
+  login(email: String!, password: String!): AuthPayload
 }

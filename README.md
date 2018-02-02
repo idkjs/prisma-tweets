@@ -59,3 +59,7 @@ type Location {
 * import the query into src/index.js
 
 - run: prisma deploy and yarn dev to update graphql schema and open playground
+
+## schema.graphql
+
+* make sure to import your types from generated prisma graphql file and use them in schema.grapqhl
