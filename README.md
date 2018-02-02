@@ -63,3 +63,50 @@ type Location {
 ## schema.graphql
 
 * make sure to import your types from generated prisma graphql file and use them in schema.grapqhl
+
+## TEMP_APP_SECRET
+
+* see: https://www.howtographql.com/graphql-js/4-signup-and-login/
+
+```js
+const TEMP_APP_SECRET = "mysecret123";
+
+module.exports = {
+  TEMP_APP_SECRET
+};
+```
+
+## using signup mutation
+
+* output:
+* mutation:
+
+```gql
+mutation {
+  signup(
+    email: "aarmand.inbox@gmail.com"
+    password: "graphql"
+    username: "idkjs"
+    fullName: "Alain Armand"
+  ) {
+    token
+    user {
+      id
+    }
+  }
+}
+```
+
+```json
+{
+  "data": {
+    "signup": {
+      "token":
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjamQ1d3RucTcwMW82MDE4NXlmYmUzd3dzIiwiaWF0IjoxNTE3NTc0NzQ4fQ.i5rDF7omlnqtWYq6HQLPKwkLqWF6R_kG2OgHY-VNm_Q",
+      "user": {
+        "id": "cjd5wtnq701o60185yfbe3wws"
+      }
+    }
+  }
+}
+```
