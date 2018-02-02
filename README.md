@@ -28,7 +28,7 @@ type Location {
 }
 ```
 
-## deploy
+## prisma deploy
 
 * in this example use local
 * run: `prisma deploy`, choose local. On running the install from first step, this will automatically run `prisma deploy`
@@ -39,6 +39,8 @@ type Location {
   HTTP:  http://localhost:4466/prisma-tweets/dev
   WS:    ws://localhost:4466/prisma-tweets/dev
 ```
+
+* every time we rerun `prisma deploy` `prisma.graphql` gets updated.
 
 ## get the schema
 
