@@ -1,7 +1,7 @@
 {
   "name": "prisma-tweets",
   "scripts": {
-    "start": "cross-env NODE_ENV=dev nodemon --exec babel-node src/index.js",
+    "start": "babel-node src/index.js",
     "dev": "npm-run-all --parallel start playground",
     "playground": "graphql playground",
     "prisma": "prisma"

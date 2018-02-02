@@ -185,3 +185,7 @@ mutation {
   }
 }
 ```
+
+## deploy with Now
+
+* run: `now --public`
