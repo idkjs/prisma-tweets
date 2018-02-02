@@ -110,3 +110,78 @@ mutation {
   }
 }
 ```
+
+## using login mutation
+
+* get header from response and use in variables section of playground
+* mutation:
+
+```graphql
+mutation {
+  login(email: "aarmand.inbox@gmail.com", password: "graphql") {
+    token
+  }
+}
+```
+
+* output:
+
+```json
+{
+  "data": {
+    "login": {
+      "token":
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjamQ1d3RucTcwMW82MDE4NXlmYmUzd3dzIiwiaWF0IjoxNTE3NTc1MTE3fQ.a7CHdRbLOBOwbB1DvTpk-liUn8xKBjFRTPWS4hBcMT0"
+    }
+  }
+}
+```
+
+* header
+
+```json
+{
+  "Authorization":
+    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjamQ1d3RucTcwMW82MDE4NXlmYmUzd3dzIiwiaWF0IjoxNTE3NTc1MTE3fQ.a7CHdRbLOBOwbB1DvTpk-liUn8xKBjFRTPWS4hBcMT0"
+}
+```
+
+## Using Feed Query to get tweets
+
+* the feed query returns tweets posted on this server, not actually interacting with twitter
+
+* query
+
+```gql
+{
+  feed {
+    tweets {
+      id
+      postedBy {
+        username
+      }
+      body
+    }
+  }
+}
+```
+
+* ouptu:
+
+```json
+{
+  "data": {
+    "feed": {
+      "tweets": [
+        {
+          "id": "cjd5x6taj01sy0185djv9t6hu",
+          "postedBy": {
+            "username": "idkjs"
+          },
+          "body": "https://www.graphqlweekly.com"
+        }
+      ]
+    }
+  }
+}
+```
