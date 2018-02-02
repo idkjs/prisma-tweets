@@ -1,11 +1,10 @@
-const { GraphQLServer } = require("graphql-yoga");
-const { Prisma } = require("prisma-binding");
-// const Query = require("./resolvers/Query");
-// const Feed = require("./resolvers/Feed");
-// const Mutation = require("./resolvers/Mutation");
+import { GraphQLServer } from "graphql-yoga";
+import { Prisma } from "prisma-binding";
+
 import Query from "./resolvers/Query";
 import Feed from "./resolvers/Feed";
 import Mutation from "./resolvers/Mutation";
+
 const resolvers = {
   Query,
   Feed,

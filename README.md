@@ -189,3 +189,5 @@ mutation {
 ## deploy with Now
 
 * run: `now --public`
+
+- see it here: prisma-tweets.now.sh
