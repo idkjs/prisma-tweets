@@ -166,7 +166,7 @@ mutation {
 }
 ```
 
-* ouptu:
+* output:
 
 ```json
 {
